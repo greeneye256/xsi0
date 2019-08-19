@@ -12,7 +12,7 @@ public class XsiO {
         Am observat ca, cazul in care jocul este completat total este un pic diferit
         fata de jocul in care se umple pe rand tabelul(cazul in care jocul se poate termina inainte de a se umple complet tabelul).
 
-        Am vazut ca dace o diagonala este castigatoare pentru una dintre valori atunci acea valoare castiga jocul,
+        Am vazut ca daca o diagonala este castigatoare pentru una dintre valori atunci acea valoare castiga jocul,
         neexistand posibilitatea pentru cealalta de a "recupera", nu mai are loc sa faca o linie sau diagonala.
 
         Am observat ca 0-ul nu va putea niciodata sa faca 2 winuri adica sa aiba 2 linii sau linie si diagonala sau doua diagonale din cauza ca sunt numai 4 de 0-uri.
@@ -24,11 +24,11 @@ public class XsiO {
 
         char upLeft = 'X';
         char upMiddle = '0';
-        char upRight = 'X';
+        char upRight = '0';
         char middleLeft = 'X';
-        char middleMiddle = '0';
-        char middleRight = 'X';
-        char downLeft = '0';
+        char middleMiddle = 'X';
+        char middleRight = '0';
+        char downLeft = 'X';
         char downMiddle = '0';
         char downRight = 'X';
 
@@ -189,17 +189,21 @@ public class XsiO {
                 if (upLeft == middleMiddle && middleMiddle== downRight){
                     if (upLeft == 'X'){
                         System.out.println("X a castigat!");
+                        xWins = 3;
                     }
                     else {
                         System.out.println("0 a castigat!");
+                        oWins = 3;
                     }
                 }
                 if (upRight == middleMiddle && middleMiddle== downLeft){
                     if (upRight == 'X'){
                         System.out.println("X a castigat!");
+                        xWins = 3;
                     }
                     else {
                         System.out.println("0 a castigat!");
+                        oWins = 3;
                     }
                 }
                 if (xWins == oWins && xWins == 1){
@@ -214,7 +218,13 @@ public class XsiO {
                 if (xWins == 1 && oWins == 0){
                     System.out.println("X a castigat!");
                 }
+                if (xWins == 0 && oWins == 0){
+                    System.out.println("Remiza!");
+                }
 
+            }
+            else {
+                System.out.println("Numarul de x trebuie sa fie 5 si cel de 0 sa fie 4. Verificati si completati variabilele in consecinta!");
             }
 
         }
